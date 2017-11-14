@@ -1,0 +1,8 @@
+weighted-dns:
+  - name: "myrecord.acme.com"
+   zone: "acme.com"
+   zoneid: "1234567890"
+
+  - name: "myrecord.acme.com"
+    zone: "acme.com"
+    zoneid: "1234567890"
