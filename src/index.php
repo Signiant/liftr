@@ -1,14 +1,17 @@
 <?php
+	session_name("liftr-prod");
+	session_start();
+
 	require 'vendor/autoload.php';
 	require "lib/common.php";
   require "lib/config.php";
 	require "lib/route53.php";
+	require_once('./adlap/adLDAP.php');
+	require "auth.php";
 
 	ob_implicit_flush(TRUE);
 	date_default_timezone_set(@date_default_timezone_get());
-?>
 
-<?php
 	// Read the config File
 	$configFile = $_GET['config'];
 	if (empty($configFile)) { $configFile = 'config.yaml'; }
@@ -24,6 +27,19 @@
 
 	$sdk = new Aws\Sdk($sharedConfig);
 	$r53Client = $sdk->createRoute53();
+
+	// AD AUTH STUFF
+	$auth_realm = "liftr-prod";
+	$url_action = (empty($_REQUEST['action'])) ? 'logIn' : $_REQUEST['action'];
+	if (isset($url_action))
+	{
+		if (is_callable($url_action))
+		{
+			call_user_func($url_action,$auth_realm,$appConfig);
+		} else {
+			writePage("nofunction");
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +67,9 @@
   </head>
   <body>
     <div class="container">
-      <?php if (file_exists("menu.php")) { include 'menu.php'; } ?>
+      <?php
+			 	if (file_exists("menu.php")) { include 'menu.php'; }
+			 ?>
 
 			<div class="panel panel-default">
 				<div class="panel-heading">
