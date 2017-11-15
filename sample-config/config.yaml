@@ -7,7 +7,7 @@ active_directory:
   domain_controllers:
     - "pdc.x.y.com"
 
-weighted-dns:
+weighted_dns:
   - name: "myrecord.acme.com"
    zone: "acme.com"
    zoneid: "1234567890"

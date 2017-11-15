@@ -29,15 +29,18 @@
 	$r53Client = $sdk->createRoute53();
 
 	// AD AUTH STUFF
-	$auth_realm = "liftr-prod";
-	$url_action = (empty($_REQUEST['action'])) ? 'logIn' : $_REQUEST['action'];
-	if (isset($url_action))
+	if (isset($appConfig['active_directory']))
 	{
-		if (is_callable($url_action))
+		$auth_realm = "liftr-prod";
+		$url_action = (empty($_REQUEST['action'])) ? 'logIn' : $_REQUEST['action'];
+		if (isset($url_action))
 		{
-			call_user_func($url_action,$auth_realm,$appConfig);
-		} else {
-			writePage("nofunction");
+			if (is_callable($url_action))
+			{
+				call_user_func($url_action,$auth_realm,$appConfig);
+			} else {
+				writePage("nofunction");
+			}
 		}
 	}
 ?>

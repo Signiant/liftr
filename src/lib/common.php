@@ -55,7 +55,7 @@ function renderRecords($r53Client,$config)
 
 	$i = 1;
 
-	foreach ($config['weighted-dns'] as $dnsRecord)
+	foreach ($config['weighted_dns'] as $dnsRecord)
 	{
 		# For the current fqdn, get the weighted records associated with them.
 		# Our tool only handles 2 weighted records per fqdn...
