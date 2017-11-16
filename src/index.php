@@ -12,6 +12,10 @@
 	ob_implicit_flush(TRUE);
 	date_default_timezone_set(@date_default_timezone_get());
 
+	# needed so that the aws sdk can find the credentials if bind mounting
+	# Seems the AWS PHP SDK does not read the AWS_SHARED_CREDENTIALS_FILE as boto does
+	putenv("HOME=/var/www");
+
 	// Read the config File
 	$configFile = $_GET['config'];
 	if (empty($configFile)) { $configFile = 'config.yaml'; }
