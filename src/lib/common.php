@@ -65,7 +65,7 @@ function renderRecords($r53Client,$config)
 		{
 			if (count($records) != 2)
 			{
-				doAlert('alert-danger',"This tool only handles records with 2 sets. " . $dnsRecord['name'] . " has " . count($records));
+				doAlert('alert-danger', "0", "This tool only handles records with 2 sets. " . $dnsRecord['name'] . " has " . count($records));
 			} else {
 				$fqdn = $records[0]['Name'];
 				$sliderId = 'slider' . $i;
@@ -154,7 +154,7 @@ function renderRecords($r53Client,$config)
 				<?php
 			}
 		} else {
-			doAlert('alert-danger',"No Weighted records found for " . $dnsRecord['name']);
+			doAlert('alert-danger', "0", "No Weighted records found for " . $dnsRecord['name']);
 		}
 		$i++;
 	}
