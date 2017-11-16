@@ -96,7 +96,7 @@ function renderRecords($r53Client,$config)
 										<input name="left-set-value" id="<?= $leftTextboxId ?>" class="form-control slider-txt" type="text" pattern="\d*" data-inputmask="" value=""/>
 									</div>
 									<div class="col-sm-3">
-										<input id="<?= $sliderId ?>"  type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1"/>
+										<input id="<?= $sliderId ?>"  type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide"/>
 									</div>
 									<div class="col-sm-1">
 										<input type="hidden" name="right-set-name" value="<?= $rightSetId ?>">
@@ -148,7 +148,7 @@ function renderRecords($r53Client,$config)
 										this.value = val > maxSliderValue ? maxSliderValue : val;
 
 										$('#<?= $sliderId ?>').slider('setValue', val);
-										$("#<?= $$leftTextboxId ?>").val(maxSliderValue-(<?= $sliderId ?>.slider('getValue')));
+										$("#<?= $leftTextboxId ?>").val(maxSliderValue-(<?= $sliderId ?>.slider('getValue')));
 								});
 							</script>
 						</div> <!-- panel body -->
