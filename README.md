@@ -1,10 +1,7 @@
-# dynamodb-add-ttl-lambda
-Lambda function to add a ttl attribute to an existing table based on an existing attribute
-
 # liftr
 Liftr is a simple, config driven app to allow easy manipulation of AWS Route53 weighted DNS record sets.  The app currently supports only weighted records with 2 sets and is designed for use cases like switching traffic between 2 endpoints in 2 regions.  It looks like a little like this:
 
-![Sample Report](https://raw.githubusercontent.com/Signiant/liftr/master/images/liftr-screen.jpg)
+![Sample Screen](https://raw.githubusercontent.com/Signiant/liftr/master/images/liftr-screen.jpg)
 
 # Configuration
 The app is driven by a small YAML configuration file that can be mounted into the docker container using a bind mount.  An example file looks like:
