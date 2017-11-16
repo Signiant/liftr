@@ -118,19 +118,19 @@ function renderRecords($r53Client,$config)
 								var maxSliderValue = $("#<?= $sliderId ?>").data("slider-max");
 
 								var <?= $sliderId ?> = $('#<?= $sliderId ?>').slider({
-								  value: <?= $leftSetWeight ?>,
+								  value: <?= $rightSetWeight ?>,
 									formatter: function(value) {
 										return 'Weight: ' + value;
 									}
 								});
 
-								$("#<?= $leftTextboxId ?>").val(<?= $sliderId ?>.slider('getValue'));
-								$("#<?= $rightTextboxId ?>").val(maxSliderValue-(<?= $sliderId ?>.slider('getValue')));
+								$("#<?= $rightTextboxId ?>").val(<?= $sliderId ?>.slider('getValue'));
+								$("#<?= $leftTextboxId ?>").val(maxSliderValue-(<?= $sliderId ?>.slider('getValue')));
 
 								// If You want to change input text using slider handler
 								$('#<?= $sliderId ?>').on('slide', function(slider){
-									$("#<?= $leftTextboxId ?>").val(slider.value);
-								  $("#<?= $rightTextboxId ?>").val(maxSliderValue-(slider.value));
+									$("#<?= $leftTextboxId ?>").val(maxSliderValue-(slider.value));
+									$("#<?= $rightTextboxId ?>").val(slider.value);
 								});
 
 								// If you want to change slider using input text (left box)
@@ -138,8 +138,8 @@ function renderRecords($r53Client,$config)
 								    var val = Math.abs(parseInt(this.value, 10) || minSliderValue);
 								    this.value = val > maxSliderValue ? maxSliderValue : val;
 
-								    $('#<?= $sliderId ?>').slider('setValue', val);
-										$("#<?= $rightTextboxId ?>").val(maxSliderValue-(<?= $sliderId ?>.slider('getValue')));
+								    $('#<?= $sliderId ?>').slider('setValue', maxSliderValue-val);
+										$("#<?= $rightTextboxId ?>").val((<?= $sliderId ?>.slider('getValue')));
 								});
 
 								// If you want to change slider using input text (right box)
