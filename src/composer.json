@@ -1,6 +1,6 @@
 {
     "require": {
-        "mustangostang/spyc": "*",
+        "mustangostang/spyc": "0.6.2",
         "aws/aws-sdk-php": "3.*"
     }
 }
