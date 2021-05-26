@@ -13,8 +13,8 @@
 
 
     // init configuration
-    $clientID = '482772100929-dr3s8l5v64e5p721kq7l3ms1idajp5mq.apps.googleusercontent.com';
-    $clientSecret = '5n0JUv3I_XbmscWKVe5TKM6q';
+    $clientID = '<google Oauth id>';
+    $clientSecret = '<google Oauth secret>';
     $redirectUri = 'http://localhost:8080/liftr.php';
 
     // create Client Request to access Google API
