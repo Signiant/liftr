@@ -1,6 +1,7 @@
 {
     "require": {
         "mustangostang/spyc": "0.6.2",
-        "aws/aws-sdk-php": "3.*"
+        "aws/aws-sdk-php": "3.*",
+        "google/apiclient":"^2.0"
     }
 }
